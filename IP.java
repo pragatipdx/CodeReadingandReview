@@ -1,4 +1,3 @@
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -17,12 +16,12 @@ class IP
 
 	private static int offset;
 	private static int[] index = new int[256];
-	private static ByteBuffer dataBuffer;
+	private static ByteBuffer dataBuffer;   //Data Buffer-> used to store the data from the file
 	private static ByteBuffer indexBuffer;
-	private static Long lastModifyTime = 0L;
+	private static Long lastModifyTime = 0L;  //Last modification time for the file
 	private static File ipFile;
-	private static ReentrantLock lock = new ReentrantLock();
-    private static List<IpBean> iplist = new ArrayList<IpBean>();
+	private static ReentrantLock lock = new ReentrantLock(); //Lock and unlock mechanism for the file opening and closing.
+    private static List<IpBean> iplist = new ArrayList<IpBean>(); //This is the list of IP address which is fetched from the file
 
 
 
@@ -40,8 +39,9 @@ class IP
 	{
 		try {
 			ipFile = new File(filename);
-			load();
-			if (Constants.enableFileWatch) {
+			load();                                //Reading the file
+			if (Constants.enableFileWatch) //After the file is loaded, then the watch starts to calculate the time being taken to get IPs
+			{
 				watch();
 			}
 		}catch(Exception e)
@@ -218,10 +218,10 @@ class IP
 			}
 			dataBuffer.position(0);
 			int indexLength = dataBuffer.getInt();
-			byte[] indexBytes = new byte[indexLength];
-			dataBuffer.get(indexBytes, 0, indexLength - 4);
+			byte[] indexBytes = new byte[indexLength];          //Data is being read in the form of the chunks from the buffer
+			dataBuffer.get(indexBytes, 0, indexLength - 4); //why???--> because integer
 			indexBuffer = ByteBuffer.wrap(indexBytes);
-			indexBuffer.order(ByteOrder.LITTLE_ENDIAN);
+			indexBuffer.order(ByteOrder.LITTLE_ENDIAN); //Converting the BIG ENDIAN into LITTLE ENDIAN so as to compensate for the data read.
 			offset = indexLength;
 
 			int loop = 0;
@@ -229,7 +229,7 @@ class IP
 			{
 				index[loop - 1] = indexBuffer.getInt();
 			}
-			indexBuffer.order(ByteOrder.BIG_ENDIAN);
+			indexBuffer.order(ByteOrder.BIG_ENDIAN); //Converting the LITTLE ENDIAN into BIG ENDIAN so as to compensate for the data read.
 		}
 		catch (IOException ioe)
 		{  ioe.printStackTrace();
