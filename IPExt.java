@@ -132,7 +132,8 @@ public class IPExt {
     private static long bytesToLong(byte a, byte b, byte c, byte d) {
         return int2long((((a & 0xff) << 24) | ((b & 0xff) << 16) | ((c & 0xff) << 8) | (d & 0xff)));
     }
-    private static int str2Ip(String ip)  {
+    private static int str2Ip(String ip)
+    {
         String[] ss = ip.split("\\.");
         int a, b, c, d;
         a = Integer.parseInt(ss[0]);
@@ -142,11 +143,13 @@ public class IPExt {
         return (a << 24) | (b << 16) | (c << 8) | d;
     }
 
-    private static long ip2long(String ip)  {
+    private static long ip2long(String ip) // converting IP to Long
+    {
         return int2long(str2Ip(ip));
     }
 
-    private static long int2long(int i) {
+    private static long int2long(int i)  // converting IP from int type to long type
+    {
         long l = i & 0x7fffffffL;
         if (i < 0) {
             l |= 0x080000000L;
