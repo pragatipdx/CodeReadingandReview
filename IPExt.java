@@ -8,8 +8,10 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;
 
-public class IPExt {
-    public static void main(String[] args) {
+public class IPExt
+{
+    public static void main(String[] args)
+    {
         IPExt.load("./17monipdb.datx");
 
         System.out.println(Arrays.toString(IPExt.find("8.8.8.8")));
@@ -27,10 +29,12 @@ public class IPExt {
     private static File ipFile ;
     private static ReentrantLock lock = new ReentrantLock();
 
-    public static void load(String filename) {
+    public static void load(String filename)
+    {
         ipFile = new File(filename);
         load();
-        if (enableFileWatch) {
+        if (enableFileWatch)
+        {
             watch();
         }
     }
