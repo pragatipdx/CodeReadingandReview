@@ -29,7 +29,7 @@ class IP
 	public static void main(String[] args)
 	{
 		IP.load("./17monipdb.dat");
-		System.out.println("find:"+Arrays.toString(IP.find(Constants.IP_ADDRESS)));
+		System.out.println("find:"+Arrays.toString(IP.findgeoIP(Constants.IP_ADDRESS)));
 		System.out.println("find2:"+Arrays.toString(IP.find2(Constants.IP_ADDRESS)));
 	}
 
@@ -50,7 +50,7 @@ class IP
 		}
 	}
 
-	public static String[] find(String ip)        // Trying to find the IP in .dat file
+	public static String[] findgeoIP(String ip)      // finding the location of IP user entered
 	{
 		int ip_prefix_value = new Integer(ip.substring(0, ip.indexOf(".")));
 		long ip2long_value = ip2long(ip);
@@ -89,7 +89,7 @@ class IP
 
 
 
-	public  static String[] find2(String ip)
+	public  static String[] find2(String ip)      // Trying to find the IP in .dat file
 	{
 		String[]  area = null;
 		long ip2long_value = ip2long(ip);
