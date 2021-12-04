@@ -1,4 +1,4 @@
-           import java.io.File;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
@@ -39,7 +39,7 @@ public class IPExt
         }
     }
 
-    public static String[] find(String ip)
+    public static String[] find(String ip) // finding IP
     {
         String[] ips = ip.split("\\.");
         int prefix_value = (Integer.valueOf(ips[0]) * 256 + Integer.valueOf(ips[1]));
@@ -94,7 +94,7 @@ public class IPExt
         }, 1000L, 5000L, TimeUnit.MILLISECONDS);
     }
 
-    private static void load()
+    private static void load()  // loading the file to find IP location
     {
         lastModifyTime = ipFile.lastModified();
         lock.lock();
@@ -123,7 +123,7 @@ public class IPExt
         }
     }
 
-    private static byte[] getBytesByFile(File file)
+    private static byte[] getBytesByFile(File file)  // getting the bytes
     {
         FileInputStream fin = null;
         byte[] bs = new byte[new Long(file.length()).intValue()];
@@ -164,7 +164,7 @@ public class IPExt
     {
         return int2long((((a & 0xff) << 24) | ((b & 0xff) << 16) | ((c & 0xff) << 8) | (d & 0xff)));
     }
-    private static int str2Ip(String ip)
+    private static int str2Ip(String ip)  
     {
         String[] ss = ip.split("\\.");
         int a, b, c, d;
