@@ -12,14 +12,6 @@ As part of our project, we will be focusing on features of clean code:
    Issues of naming conventions (meaningful names), refactoring methods (functions), 
    formatting and error handling will be closed.
 
-# Background Information:
 
-GIT repository forked: https://github.com/darkice1/17mon.git  
-Contributor: darkice1  
-Project Name: 17mon IP Parser  
-Description: IP Parser inputs IP library and parses it for the end user.  
-Language: Java  
-Version: Java 4  
-Created Date: Dec 2, 2014  
-                                                                           
+                                                           
 
