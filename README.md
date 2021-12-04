@@ -12,13 +12,13 @@ As part of our project, we will be focusing on features of clean code:
 
 Background Information:
 
-GIT repository forked: https://github.com/darkice1/17mon.git
-Contributor: darkice1
-Project Name: 17mon IP Parser
-Description: IP Parser inputs IP library file and parses it to identify
-Geographical Location by user input-IP Address.
-Language: Java
-Version: Java 4
-Created Date: Dec 2, 2014
+GIT repository forked: https://github.com/darkice1/17mon.git  
+Contributor: darkice1  
+Project Name: 17mon IP Parser  
+Description: IP Parser inputs IP library file and parses it to identify  
+Geographical Location by user input-IP Address.  
+Language: Java  
+Version: Java 4  
+Created Date: Dec 2, 2014  
                                                                            
 
