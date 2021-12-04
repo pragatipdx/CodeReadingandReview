@@ -53,7 +53,7 @@ class IP
 		}
 	}
 
-	public static String[] find(String ip)
+	public static String[] findGeoIP(String ip)
 	{
 		int ip_prefix_value = new Integer(ip.substring(0, ip.indexOf(".")));
 		long ip2long_value = ip2long(ip);
@@ -92,7 +92,7 @@ class IP
 
 
 
-	public  static String[] find2(String ip)
+	public  static String[] findIPdat(String ip)
 	{
 		String[]  area = null;
 		long ip2long_value = ip2long(ip);
